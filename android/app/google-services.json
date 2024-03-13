@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "131886292417",
+    "project_id": "edu-hub-b9813",
+    "storage_bucket": "edu-hub-b9813.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131886292417:android:28f9fba18d5f26c75e6340",
+        "android_client_info": {
+          "package_name": "com.example.mini"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm_igSsaTQy6l_XSDMll2PprNZkeqDGAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
