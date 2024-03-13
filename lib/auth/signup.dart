@@ -25,10 +25,23 @@ class SignUp extends StatelessWidget {
 
     Future<void> signUp(String email, String password) async {
       try {
+        if (password != retyprpasscontroller.text) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('the passwords dont match'),
+              backgroundColor: Colors.red,
+            ),
+          );
+
+          return;
+        }
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email,
           password: password,
         );
+        final user = FirebaseAuth.instance.currentUser;
+        user?.updateDisplayName(username.text);
+
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => const Login(),
