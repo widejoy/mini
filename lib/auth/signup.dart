@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mini/auth/login.dart';
 import 'package:mini/widgets/field.dart';
+import 'package:transition/transition.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -17,9 +18,9 @@ class SignUp extends StatelessWidget {
 
     void nav() {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const Login(),
-        ),
+        Transition(
+            child: const Login(),
+            transitionEffect: TransitionEffect.RIGHT_TO_LEFT),
       );
     }
 
@@ -42,11 +43,7 @@ class SignUp extends StatelessWidget {
         final user = FirebaseAuth.instance.currentUser;
         user?.updateDisplayName(username.text);
 
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => const Login(),
-          ),
-        );
+        nav();
       } on FirebaseAuthException catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

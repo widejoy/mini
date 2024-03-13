@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mini/app/homepage.dart';
 import 'package:mini/auth/signup.dart';
 import 'package:mini/widgets/field.dart';
+import 'package:transition/transition.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -18,11 +20,17 @@ class Login extends StatelessWidget {
           email: email,
           password: password,
         );
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Login Sucesfull'),
             backgroundColor: Colors.blue,
           ),
+        );
+        Navigator.of(context).pushReplacement(
+          Transition(
+              child: const HomePage(),
+              transitionEffect: TransitionEffect.LEFT_TO_RIGHT),
         );
       } on FirebaseAuthException catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -35,11 +43,9 @@ class Login extends StatelessWidget {
     }
 
     void nav(String text) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const SignUp(),
-        ),
-      );
+      Navigator.of(context).pushReplacement(Transition(
+          child: const SignUp(),
+          transitionEffect: TransitionEffect.LEFT_TO_RIGHT));
     }
 
     Future<void> resetPassword(String email) async {}
