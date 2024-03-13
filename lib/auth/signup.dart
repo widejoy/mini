@@ -12,6 +12,8 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
+    TextEditingController retyprpasscontroller = TextEditingController();
+    TextEditingController username = TextEditingController();
 
     void nav() {
       Navigator.of(context).pushReplacement(
@@ -55,7 +57,7 @@ class SignUp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.37),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
               Center(
                 child: customTextBox(
                   "email",
@@ -64,15 +66,16 @@ class SignUp extends StatelessWidget {
                   emailController,
                 ),
               ),
-              const SizedBox(
-                height: 14,
-              ),
+              customTextBox(
+                  "username", Icons.account_circle_sharp, false, username),
               customTextBox(
                 "password",
                 Icons.password_outlined,
                 true,
                 passwordController,
               ),
+              customTextBox("retype password", Icons.password_rounded, true,
+                  retyprpasscontroller),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
