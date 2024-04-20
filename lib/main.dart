@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mini/app/chatpage.dart';
 import 'package:mini/auth/Login.dart';
 import 'package:mini/firebase_options.dart';
 import 'package:hive/hive.dart';
@@ -23,7 +22,7 @@ Future<void> main() async {
     const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: ChatPage(),
+        body: Login(),
       ),
     ),
   );
