@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mini/app/chatpage.dart';
 import 'package:mini/auth/Login.dart';
 import 'package:mini/firebase_options.dart';
 
@@ -10,10 +11,10 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    const MaterialApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Login(),
+        body: ChatPage(),
       ),
     ),
   );

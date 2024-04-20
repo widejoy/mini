@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mini/app/homepage.dart';
+import 'package:mini/app/chatpage.dart';
 import 'package:mini/auth/signup.dart';
 import 'package:mini/widgets/field.dart';
 import 'package:transition/transition.dart';
@@ -29,7 +29,7 @@ class Login extends StatelessWidget {
         );
         Navigator.of(context).pushReplacement(
           Transition(
-              child: const HomePage(),
+              child: ChatPage(),
               transitionEffect: TransitionEffect.LEFT_TO_RIGHT),
         );
       } on FirebaseAuthException catch (e) {
@@ -47,8 +47,6 @@ class Login extends StatelessWidget {
           child: const SignUp(),
           transitionEffect: TransitionEffect.LEFT_TO_RIGHT));
     }
-
-    Future<void> resetPassword(String email) async {}
 
     return Scaffold(
       body: Container(
@@ -126,17 +124,6 @@ class Login extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  resetPassword(usercont.text);
-                },
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
